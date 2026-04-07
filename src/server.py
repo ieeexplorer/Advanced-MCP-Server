@@ -26,7 +26,7 @@ from src.utils.validators import validate_input
 # Configuration
 from src.config import settings
 
-setup_logging(settings.LOG_LEVEL)
+setup_logging(settings.log_level)
 
 
 class ServerContext:
@@ -39,7 +39,7 @@ class ServerContext:
     async def initialize(self):
         """Initialize database connections and external services."""
         logger.info("Initializing server resources...")
-        self.db = DatabaseManager(settings.DATABASE_URL)
+        self.db = DatabaseManager(settings.database_url)
         await self.db.initialize()
         logger.success("Server initialized successfully")
     
@@ -65,7 +65,6 @@ async def server_lifespan(server: FastMCP) -> AsyncIterator[ServerContext]:
 # Create MCP server instance
 mcp = FastMCP(
     "Farshad Enterprise MCP Server",
-    version="2.0.0",
     lifespan=server_lifespan,
 )
 

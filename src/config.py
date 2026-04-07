@@ -50,9 +50,11 @@ class Settings(BaseSettings):
         if config_path.exists():
             with open(config_path) as f:
                 yaml_config = yaml.safe_load(f)
+                if not yaml_config:
+                    return
                 for key, value in yaml_config.items():
-                    if hasattr(self, key.upper()):
-                        setattr(self, key.upper(), value)
+                    if hasattr(self, key):
+                        setattr(self, key, value)
 
 
 settings = Settings()

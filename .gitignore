@@ -1,0 +1,21 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+
+# Local databases and temp files
+test_mcp_data.db
+*.db
+
+# Ignore nested workspace copies and unrelated folders
+Advanced-MCP-Server/
+Advanced-MCP-Server-1/
+
+# Ignore pytest cache
+.pytest_cache/
+
+# IDE files
+.vscode/
