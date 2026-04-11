@@ -271,5 +271,10 @@ async def task_analysis_prompt(task_ids: list[str]) -> str:
     return await templates.task_analysis(ctx.db, task_ids)
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """Entry point for the MCP server."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
